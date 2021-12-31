@@ -32,7 +32,6 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-    console.log('submit', this.form.value);
     const request: RegisterRequestInterface = {
       user: this.form.value,
     };
