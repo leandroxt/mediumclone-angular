@@ -7,8 +7,11 @@
           <a [routerLink]="['/login']">Have an account?</a>
         </p>
         <!-- <app-list-errors> -->
-        BackendErrors are here
-        <ul class="error-messages"></ul>
+        <mc-backend-error-messages
+          *ngIf="backendErrors$ | async"
+          [backendErrors]="(backendErrors$ | async) || {}"
+        ></mc-backend-error-messages>
+        <!-- <ul class="error-messages"></ul> -->
         <!-- </app-list-errors> -->
         <form
           novalidate=""

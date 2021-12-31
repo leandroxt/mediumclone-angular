@@ -1,5 +1,4 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-// import { AppStateInterface } from 'src/app/shared/types/appState.interface';
 import { AuthStateInterface } from 'src/app/auth/types/authState.interface';
 
 export const authFeatureSelector =
@@ -10,9 +9,7 @@ export const isSubmittingSelector = createSelector(
   (authState: AuthStateInterface) => authState.isSubmitting
 );
 
-// const authStateSelector = (state: AppStateInterface) => state.auth;
-
-// export const isSubmittingSelect = createSelector(
-//   authStateSelector,
-//   (state: AuthStateInterface) => state.isSubmitting
-// );
+export const validationErrorsSelector = createSelector(
+  authFeatureSelector,
+  ({ validationError }: AuthStateInterface) => validationError
+);
