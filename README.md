@@ -1,3 +1,6 @@
+# This code resulted from this YouTube video
+https://www.youtube.com/watch?v=DyklxnC2XP0
+
 # MediumcloneAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
