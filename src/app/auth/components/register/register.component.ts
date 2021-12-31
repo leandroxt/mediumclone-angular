@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { registerAction } from 'src/app/auth/store/actions';
+
+import { registerAction } from 'src/app/auth/store/actions/register.action';
 import { isSubmittingSelector } from '../../store/selectors';
+import { RegisterRequestInterface } from '../../types/registerRequest.interface';
 
 @Component({
   selector: 'mc-register',
@@ -25,11 +27,9 @@ export class RegisterComponent {
 
   onSubmit(): void {
     console.log('submit', this.form.value);
-    this.store.dispatch(registerAction(this.form.value));
-    new Promise(() => {
-      setTimeout(() => {
-        this.isSubmitting$ = of(false);
-      }, 2000);
-    });
+    const request: RegisterRequestInterface = {
+      user: this.form.value,
+    };
+    this.store.dispatch(registerAction({ request }));
   }
 }
